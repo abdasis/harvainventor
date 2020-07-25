@@ -65,8 +65,8 @@
                             <td>{{ $key+1 }}</td>
                             <td>{{ $nasabah->nama }}</td>
                             <td><b>Rp. {{ number_format( $nasabah->total_pinjaman, 2, ',', '.' ) }}</b></td>
+                            <td><b>{{ $nasabah->jumlah_angsuran }}x angsuran</b></td>
                             <td>{{ date('d-m-Y', strtotime($nasabah->tanggal_pencarian)) }}</td>
-                            <td><b>Rp. {{ number_format( $nasabah->jumlah_angsuran, 2, ',', '.' ) }}</b></td>
                             <td class="row justify-content-center p-1">
                                 <a href="{{ route('nasabah.edit', $nasabah->id) }}" class="mr-1">
                                     <div class="btn btn-warning btn-sm waves-ripple">
