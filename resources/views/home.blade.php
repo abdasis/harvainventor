@@ -27,7 +27,7 @@
                 </div>
                 <div class="col-6">
                     <div class="text-right">
-                        <h6 class="mt-1">Rp. <span data-plugin="counterup">{{ $nasabahs->sum('total_pinjaman') }}</span></h6>
+                        <h6 class="mt-1">Rp. <span data-plugin="counterup">{{ number_format($nasabahs->sum('total_pinjaman')) }}</span></h6>
                         <p class="text-muted mb-1 text-truncate">Total Pinjaman</p>
                     </div>
                 </div>

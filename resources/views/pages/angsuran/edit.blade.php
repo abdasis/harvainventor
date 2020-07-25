@@ -27,8 +27,9 @@
                     Tambah Catatan Pembayaran Angsuran
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('angsuran.store') }}" method="post">
+                    <form action="{{ route('angsuran.update', $angsuran->id) }}" method="post">
                         @csrf
+                        @method('PUT')
                         <div class="card-text">
                             <div class="form-group">
                                 <label for="nama_nasabah">Nasabah</label>

@@ -57,15 +57,16 @@ class AngsuranController extends Controller
             DB::transaction(function () use($request) {
                 $nasabah = Nasabah::where('nama', $request->nama_nasabah)->first();
                 $angsuranTerakhir = Angsuran::where('nasabah_id', $nasabah->id)->orderBy('created_at', 'desc')->first();
+                $totalAngsuran = Angsuran::where('nasabah_id', $nasabah->id)->orderBy('created_at', 'desc')->count();
                 $angsuran = new Angsuran();
-                $angsuran->angsuran_ke = $angsuranTerakhir == null ? 1 : $angsuranTerakhir->id;
+                $angsuran->angsuran_ke = $totalAngsuran+1;
                 $angsuran->tanggal_seharusnya = $request->get('tanggal_seharusnya');
                 $angsuran->tanggal_pembayaran = $request->get('tanggal_pembayaran');
                 $angsuran->pokok_dibayar = $request->get('pokok_dibayar');
                 $angsuran->pokok_tunggakan = $request->get('pokok_tunggakan');
                 $angsuran->jasa_dibayar = $request->get('jasa_dibayar');
                 $angsuran->jasa_tunggakan = $request->get('jasa_tunggakan');
-                $angsuran->sisa = $nasabah->total_pinjaman  - $request->get('pokok_dibayar');
+                $angsuran->sisa = $angsuranTerakhir == null ? $nasabah->total_pinjaman - $request->get('pokok_dibayar') : $angsuranTerakhir->sisa  - $request->get('pokok_dibayar');
                 $angsuran->nasabah_id = $nasabah->id;
                 $angsuran->nama_penyetor = "Abd. Asis";
                 $angsuran->ttd_penyetor = "Selamat";
@@ -113,7 +114,34 @@ class AngsuranController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $nasabah = Nasabah::where('nama', $request->nama_nasabah)->first();
+        $angsuran = Angsuran::where('nasabah_id', $nasabah->id)->get();
+        if ($request->get('pokok_dibayar') > $nasabah->total_pinjaman) {
+            Session::flash('status', 'Pembayaran anda lebih besar dari pada total pinjaman');
+            return redirect()->back()->withInput();
+
+        }else{
+            DB::transaction(function () use($request, $id) {
+                $nasabah = Nasabah::where('nama', $request->nama_nasabah)->first();
+                $angsuranTerakhir = Angsuran::where('nasabah_id', $nasabah->id)->orderBy('created_at', 'desc')->first();
+                $angsuran = Angsuran::find($id);
+                $angsuran->angsuran_ke = $angsuranTerakhir->angsuran_ke;
+                $angsuran->tanggal_seharusnya = $request->get('tanggal_seharusnya');
+                $angsuran->tanggal_pembayaran = $request->get('tanggal_pembayaran');
+                $angsuran->pokok_dibayar = $request->get('pokok_dibayar');
+                $angsuran->pokok_tunggakan = $request->get('pokok_tunggakan');
+                $angsuran->jasa_dibayar = $request->get('jasa_dibayar');
+                $angsuran->jasa_tunggakan = $request->get('jasa_tunggakan');
+                $angsuran->sisa = $angsuranTerakhir->sisa  - $request->get('pokok_dibayar');
+                $angsuran->nasabah_id = $nasabah->id;
+                $angsuran->nama_penyetor = "Abd. Asis";
+                $angsuran->ttd_penyetor = "Selamat";
+                $angsuran->save();
+            });
+            Session::flash('status', 'Data angsuran berhasil dicatat');
+            return redirect()->route('angsuran.create', $nasabah->id);
+
+        }
     }
 
     /**

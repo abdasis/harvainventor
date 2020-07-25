@@ -13,7 +13,7 @@
                         <li class="breadcrumb-item active">Catat</li>
                     </ol>
                 </div>
-                <h4 class="page-title">Catat Angsuran | <span class="text-blue">{{ $nasabah->nama }}</span> | <span class="text-danger">Rp. {{ number_format( App\Models\Angsuran::where('nasabah_id', $nasabah->id)->orderBy('created_at', 'desc')->value('sisa'), 2, ',', '.') }}</span></h4>
+                <h4 class="page-title">Catat Angsuran | {{ $nasabah->nama }}</h4>
             </div>
         </div>
     </div>
@@ -131,8 +131,6 @@
                                 <th>Tunggakan</th>
                             </tr>
                         </thead>
-
-
                         <tbody>
                             @foreach ($angsurans as $key => $angsuran)
                                 <tr>
