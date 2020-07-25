@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Angsuran;
 use App\Models\Nasabah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -125,5 +126,15 @@ class NasabahController extends Controller
             Session::flash('status', 'Data Berhasil di delete');
             return redirect()->back();
         }
+    }
+
+    public function dashboard()
+    {
+        $nasabahs = Nasabah::all();
+        $angsurans = Angsuran::all();
+        return view('home')->with([
+            'nasabahs' => $nasabahs,
+            'angsurans' => $angsurans
+        ]);
     }
 }

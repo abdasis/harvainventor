@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
-                2015 - <script>document.write(new Date().getFullYear())</script> &copy; UBold theme by <a href="">Coderthemes</a>
+                2015 - <script>document.write(new Date().getFullYear())</script> &copy; UBold theme by <a href="https://github.com/abdasis">Harvasoft</a>
             </div>
             <div class="col-md-6">
                 <div class="text-md-right footer-links d-none d-sm-block">

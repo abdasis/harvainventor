@@ -28,6 +28,8 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
+    public const USER = '/admin/user';
     public function boot()
     {
         //
