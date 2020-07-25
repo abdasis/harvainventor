@@ -48,6 +48,7 @@ class NasabahController extends Controller
             $nasabah->total_pinjaman = $request->get('total_pinjaman');
             $nasabah->jasa_pinjaman = $request->get('jasa_pinjaman');
             $nasabah->tanggal_pencarian = $request->get('pencairan');
+            $nasabah->jenis_pinjaman = $request->get('jenis_pinjaman');
             $nasabah->jangka_pinjaman = $request->get('jangka_waktu_pinjaman');
             $nasabah->jumlah_angsuran   = $request->get('jumlah_angsuran');
             $nasabah->besar_pokok = $request->get('total_pinjaman');
@@ -99,6 +100,7 @@ class NasabahController extends Controller
             $nasabah->total_pinjaman = $request->get('total_pinjaman');
             $nasabah->jasa_pinjaman = $request->get('jasa_pinjaman');
             $nasabah->tanggal_pencarian = $request->get('pencairan');
+            $nasabah->jenis_pinjaman = $request->get('jenis_pinjaman');
             $nasabah->jangka_pinjaman = $request->get('jangka_waktu_pinjaman');
             $nasabah->jumlah_angsuran   = $request->get('jumlah_angsuran');
             $nasabah->besar_pokok = $request->get('total_pinjaman');

@@ -22,6 +22,7 @@ class CreateNasabahsTable extends Migration
             $table->double('jasa_pinjaman');
             $table->string('tanggal_pencarian');
             $table->string('jangka_pinjaman');
+            $table->string('jenis_pinjaman');
             $table->string('jumlah_angsuran');
             $table->double('besar_pokok');
             $table->double('besar_jasa');

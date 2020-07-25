@@ -98,6 +98,13 @@
         </div>
     </div>
 
+    <div class="row mb-2">
+        <div class="col-12">
+            <a href="{{ route('angsuran.cetak-rekap', $nasabah->id) }}">
+                <button class="btn btn-danger btn-sm"><i class="fas fa-cloud-download-alt mr-1"></i>Download Rekap</button>
+            </a>
+        </div>
+    </div>
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -106,7 +113,6 @@
                     <p class="text-muted font-13 mb-4">
                         Dibawah ini adalah data seluruh nasabah yang sedang melakukan peminjaman
                     </p>
-
                     <table id="basic-datatable" class="table dt-responsive table-striped table-sm nowrap w-100">
                         <thead>
                             <tr>
@@ -148,14 +154,18 @@
                                             <div type="submit" class="btn-link text-danger btn-sm waves-ripple mr-1 btn-hapus" data-id="{{ $angsuran->id }}">
                                                 <i class="fas fa-trash-alt"></i>
                                             </div>
+                                            <a href="{{ route('angsuran.print', $angsuran->id) }}">
+                                                <div class="btn-link text-danger btn-sm waves-ripple">
+                                                    <i class="fas fa-file-pdf"></i>
+                                                </div>
+                                            </a>
                                         </div>
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-
-                </div> <!-- end card body-->
+                </div>
             </div> <!-- end card -->
         </div>
     </div>

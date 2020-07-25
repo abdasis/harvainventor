@@ -86,9 +86,17 @@
 
                         <div class="form-group">
                             <div class="form-row">
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <label for="tanggal_pencarian">Pencairan</label>
                                     <input class="form-control" id="pencarian" type="date" name="pencairan">
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label for="jenis_pinjaman">Jenis Pinjaman</label>
+                                    <select id="jenis_pinjaman" class="custom-select" name="jenis_pinjaman">
+                                        <option value="SPP">SPP</option>
+                                        <option value="UEP">UEP</option>
+                                    </select>
                                 </div>
                                 <div class="col-md-3">
                                     <label for="jangka_waktu_pinjaman">Jangka Waktu Pinjaman</label>

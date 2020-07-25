@@ -84,16 +84,25 @@
                                     <input type="text" class="form-control" placeholder="Masukan total pinjaman" name="total_pinjaman" value="{{ $nasabah->total_pinjaman }}">
                                 </div>
 
-                                
+
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="form-row">
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <label for="tanggal_pencarian">Pencairan</label>
                                     <input class="form-control" id="pencarian" value="{{ $nasabah->tanggal_pencarian }}" type="date" name="pencairan">
                                 </div>
+
+                                <div class="col-md-3">
+                                    <label for="jenis_pinjaman">Jenis Pinjaman</label>
+                                    <select id="jenis_pinjaman" class="custom-select" name="jenis_pinjaman">
+                                        <option value="SPP" {{ $nasabah->jenis_pinjaman == 'SPP' ? 'selected' : '' }}>SPP</option>
+                                        <option value="UEP" {{ $nasabah->jenis_pinjaman == 'UEP' ? 'selected' : '' }}>UEP</option>
+                                    </select>
+                                </div>
+
                                 <div class="col-md-3">
                                     <label for="jangka_waktu_pinjaman">Jangka Waktu Pinjaman</label>
                                     <input type="text" id="jangka_watku_pinjaman" name="jangka_waktu_pinjaman" placeholder="Masukan jumlah bulan " value="{{ $nasabah->jangka_pinjaman }}" class="form-control">

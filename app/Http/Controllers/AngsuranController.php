@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\AngsuranExport;
 use App\Http\Requests\AngsuranRequest;
 use App\Models\Angsuran;
 use App\Models\Nasabah;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Excel;
+
 
 class AngsuranController extends Controller
 {
@@ -123,5 +127,17 @@ class AngsuranController extends Controller
         $angsuran = Angsuran::find($id);
         $angsuran->delete();
         return response()->json("Data angsuran berhasil dihapus", 200);
+    }
+
+    public function print($id)
+    {
+        $angsuran = Angsuran::find($id);
+        $nasabah = Nasabah::find($angsuran->nasabah_id);
+        return view('pages.angsuran.struk-angsuran')->withAngsuran($angsuran)->withNasabah($nasabah);
+    }
+
+    public function downloadRekap($id)
+    {
+        return (new AngsuranExport)->forNasbahId($id)->download('invoices.xlsx');
     }
 }

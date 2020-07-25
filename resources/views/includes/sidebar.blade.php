@@ -75,6 +75,24 @@
                                 </div>
                             </li>
 
+                            <li>
+                                <a href="#pengguna" data-toggle="collapse">
+                                    <i class="mdi mdi-account-check-outline"></i>
+                                    <span> Data Pengguna </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="pengguna">
+                                    <ul class="nav-second-level">
+                                        <li>
+                                            <a href="#">Tambah Pengguna</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Data Pengguna</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
                         </ul>
 
                     </div>
