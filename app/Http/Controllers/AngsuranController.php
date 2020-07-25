@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Excel;
-
+use Illuminate\Support\Facades\Auth;
 
 class AngsuranController extends Controller
 {
@@ -49,6 +49,7 @@ class AngsuranController extends Controller
     {
         $nasabah = Nasabah::where('nama', $request->nama_nasabah)->first();
         $angsuran = Angsuran::where('nasabah_id', $nasabah->id)->get();
+
         if ($request->get('pokok_dibayar') > $nasabah->total_pinjaman) {
             Session::flash('status', 'Pembayaran anda lebih besar dari pada total pinjaman');
             return redirect()->back()->withInput();
@@ -68,8 +69,8 @@ class AngsuranController extends Controller
                 $angsuran->jasa_tunggakan = $request->get('jasa_tunggakan');
                 $angsuran->sisa = $angsuranTerakhir == null ? $nasabah->total_pinjaman - $request->get('pokok_dibayar') : $angsuranTerakhir->sisa  - $request->get('pokok_dibayar');
                 $angsuran->nasabah_id = $nasabah->id;
-                $angsuran->nama_penyetor = "Abd. Asis";
-                $angsuran->ttd_penyetor = "Selamat";
+                $angsuran->nama_penyetor = Auth::user()->name;
+                $angsuran->ttd_penyetor = "";
                 $angsuran->save();
             });
             Session::flash('status', 'Data angsuran berhasil dicatat');
@@ -115,7 +116,6 @@ class AngsuranController extends Controller
     public function update(Request $request, $id)
     {
         $nasabah = Nasabah::where('nama', $request->nama_nasabah)->first();
-        $angsuran = Angsuran::where('nasabah_id', $nasabah->id)->get();
         if ($request->get('pokok_dibayar') > $nasabah->total_pinjaman) {
             Session::flash('status', 'Pembayaran anda lebih besar dari pada total pinjaman');
             return redirect()->back()->withInput();
@@ -132,15 +132,14 @@ class AngsuranController extends Controller
                 $angsuran->pokok_tunggakan = $request->get('pokok_tunggakan');
                 $angsuran->jasa_dibayar = $request->get('jasa_dibayar');
                 $angsuran->jasa_tunggakan = $request->get('jasa_tunggakan');
-                $angsuran->sisa = $angsuranTerakhir->sisa  - $request->get('pokok_dibayar');
+                $angsuran->sisa = ($angsuranTerakhir->sisa + $angsuranTerakhir->pokok_dibayar)  - $request->get('pokok_dibayar');
                 $angsuran->nasabah_id = $nasabah->id;
-                $angsuran->nama_penyetor = "Abd. Asis";
-                $angsuran->ttd_penyetor = "Selamat";
+                $angsuran->nama_penyetor = Auth::user()->name;
+                $angsuran->ttd_penyetor = "";
                 $angsuran->save();
             });
             Session::flash('status', 'Data angsuran berhasil dicatat');
             return redirect()->route('angsuran.create', $nasabah->id);
-
         }
     }
 
