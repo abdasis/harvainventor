@@ -78,7 +78,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <label for="total_pinjaman">Total Jasa</label>
-                                    <input type="text" readonly id="total_jasa" class="form-control" placeholder="Masukan total pinjaman" name="total_pinjaman" value="{{ old('total_pinjaman') }}">
+                                    <input type="text" readonly id="total_jasa" class="form-control" placeholder="Masukan total pinjaman" name="total_jasa" value="{{ old('total_pinjaman') }}">
                                     <p class="font-16 font-weight-bold" id="total_jasa_rupiah"></p>
                                 </div>
                             </div>
@@ -93,6 +93,7 @@
                                 <div class="col-md-3">
                                     <label for="jangka_waktu_pinjaman">Jangka Waktu Pinjaman</label>
                                     <input type="text" id="jangka_watku_pinjaman" name="jangka_waktu_pinjaman" placeholder="Masukan jumlah bulan " value="{{ old('jangka_waktu_pinjaman') }}" class="form-control">
+                                    <small class="text-muted">*Hitungan bulan</small>
                                 </div>
                                 <div class="col-md-3">
                                     <label for="jumlah_angsura">Jumlah Angsuran</label>

@@ -52,6 +52,7 @@
                             <th>No</th>
                             <th>Nama Kelompok</th>
                             <th>Total Pinjaman</th>
+                            <th>Total Jasa</th>
                             <th>Jumlah Angsuran</th>
                             <th>Tanggal Pencairan</th>
                             <th>Option</th>
@@ -65,6 +66,7 @@
                             <td>{{ $key+1 }}</td>
                             <td>{{ $nasabah->nama }}</td>
                             <td><b>Rp. {{ number_format( $nasabah->total_pinjaman, 2, ',', '.' ) }}</b></td>
+                            <td><b>Rp. {{ number_format( $nasabah->besar_jasa, 2, ',', '.' ) }}</b></td>
                             <td><b>{{ $nasabah->jumlah_angsuran }}x angsuran</b></td>
                             <td>{{ date('d-m-Y', strtotime($nasabah->tanggal_pencarian)) }}</td>
                             <td class="row justify-content-center p-1">
