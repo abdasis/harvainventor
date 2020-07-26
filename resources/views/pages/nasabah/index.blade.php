@@ -51,10 +51,11 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Kelompok</th>
-                            <th>Total Pinjaman</th>
-                            <th>Total Jasa</th>
+                            <th>Pinjaman</th>
+                            <th>Jasa</th>
                             <th>Jumlah Angsuran</th>
                             <th>Tanggal Pencairan</th>
+                            <th>Total Pinjaman</th>
                             <th>Option</th>
                         </tr>
                     </thead>
@@ -69,6 +70,7 @@
                             <td><b>Rp. {{ number_format( $nasabah->besar_jasa, 2, ',', '.' ) }}</b></td>
                             <td><b>{{ $nasabah->jangka_pinjaman }} Bulan</b></td>
                             <td>{{ date('d-m-Y', strtotime($nasabah->tanggal_pencarian)) }}</td>
+                            <td><b>Rp. {{ number_format( ($nasabah->total_pinjaman+$nasabah->besar_jasa), 2, ',', '.' ) }} </b></td>
                             <td class="row justify-content-center p-1">
                                 <a href="{{ route('nasabah.edit', $nasabah->id) }}" class="mr-1">
                                     <div class="btn btn-warning btn-sm waves-ripple">
