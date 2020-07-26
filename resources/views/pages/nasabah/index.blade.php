@@ -77,17 +77,14 @@
                                         <i class="fas fa-pen-alt"></i>
                                     </div>
                                 </a>
-
                                 <button type="submit" class="btn btn-danger btn-sm waves-ripple mr-1 btn-hapus" data-id="{{ $nasabah->id }}">
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
-
                                 <a href="{{ route('nasabah.show', $nasabah->id) }}" class="mr-1">
                                     <div class="btn btn-blue btn-sm waves-ripple">
                                         <i class="fas fa-eye"></i>
                                     </div>
                                 </a>
-
                                 <a href="{{ route('angsuran.create', $nasabah->id) }}">
                                     <div class="btn btn-success btn-sm waves-ripple">
                                         <i class="fas fa-cash-register"></i>

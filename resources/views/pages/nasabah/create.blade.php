@@ -100,7 +100,12 @@
                                 </div>
                                 <div class="col-md-3">
                                     <label for="jangka_waktu_pinjaman">Jangka Waktu Pinjaman</label>
-                                    <input type="text" id="jangka_watku_pinjaman" name="jangka_waktu_pinjaman" placeholder="Masukan jumlah bulan " value="{{ old('jangka_waktu_pinjaman') }}" class="form-control">
+                                    <div class="input-group">
+                                        <input type="text" id="jangka_watku_pinjaman" name="jangka_waktu_pinjaman" placeholder="Masukan jumlah bulan " value="{{ old('jangka_waktu_pinjaman') }}" class="form-control">
+                                        <div class="input-group-append">
+                                                <div class="input-group-text">Bulan</div>
+                                        </div>
+                                    </div>
                                     <small class="text-muted">*Hitungan bulan</small>
                                 </div>
                                 <div class="col-md-3">
@@ -111,7 +116,7 @@
                         </div>
 
                         <div class="form-group">
-                            <button class="btn btn-primary waves-effect" type="submit"><i class="fa fa-save mr-1"></i>Simpan Data</button>
+                            <button class="btn btn-blue waves-effect" type="submit"><i class="fa fa-save mr-1"></i>Simpan Data</button>
                         </div>
                     </form>
                 </div>

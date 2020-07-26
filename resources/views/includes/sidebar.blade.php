@@ -9,7 +9,7 @@
                         <div class="dropdown">
                             <a href="javascript: void(0);" class="text-dark dropdown-toggle h5 mt-2 mb-1 d-block"
                                 data-toggle="dropdown">@auth
-                                    {{ Auth::user()->name }}
+                                    <b>{{ Auth::user()->name }}</b>
                                 @endauth
                                 @guest
                                     Guest

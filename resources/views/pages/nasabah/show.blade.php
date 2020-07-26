@@ -42,29 +42,34 @@
                                 <td>{{ $nasabah->alamat }}</td>
                             </tr>
                             <tr>
-                                <th>Total Pinjaman</th>
+                                <th>Pinjaman</th>
                                 <td>:</td>
-                                <td>{{ $nasabah->total_pinjaman }}</td>
+                                <td>Rp. {{ number_format($nasabah->total_pinjaman, 2, ',','.') }}</td>
                             </tr>
                             <tr>
                                 <th>Jasa Pinjaman</th>
                                 <td>:</td>
-                                <td>{{ $nasabah->jasa_pinjaman }}</td>
+                                <td>{{ $nasabah->jasa_pinjaman }}%</td>
+                            </tr>
+                            <tr>
+                                <th>Total Pinjaman</th>
+                                <td>:</td>
+                                <td>Rp. {{ number_format(($nasabah->total_pinjaman+$nasabah->besar_jasa), 2, ',','.') }}</td>
                             </tr>
                             <tr>
                                 <th>Tanggal Pencarian</th>
                                 <td>:</td>
-                                <td>{{ $nasabah->tanggal_pencarian }}</td>
+                                <td>{{ date('d-m-Y', strtotime($nasabah->tanggal_pencarian)) }}</td>
                             </tr>
                             <tr>
                                 <th>Jangka Pinjaman</th>
                                 <td>:</td>
-                                <td>{{ $nasabah->jangka_pinjaman }}</td>
+                                <td>{{ $nasabah->jangka_pinjaman }} Bulan Sampai <b>{{ date('F-Y', strtotime(" +$nasabah->jangka_pinjaman months", strtotime($nasabah->tanggal_pencarian))) }}</b></td>
                             </tr>
                             <tr>
                                 <th>Jumlah Angsuran</th>
                                 <td>:</td>
-                                <td>{{ $nasabah->jumlah_angsuran }}</td>
+                                <td>Rp. {{ number_format($nasabah->jumlah_angsuran, 2, ',','.') }}</td>
                             </tr>
                         </tbody>
                     </table>
