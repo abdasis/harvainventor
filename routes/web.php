@@ -20,7 +20,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', function(){
+    return redirect('/admin');
+})->name('home');
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/', 'NasabahController@dashboard')->name('nasabah.dashboard');
     Route::resource('nasabah', 'NasabahController');

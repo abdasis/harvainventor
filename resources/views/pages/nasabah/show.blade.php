@@ -64,7 +64,7 @@
                             <tr>
                                 <th>Jangka Pinjaman</th>
                                 <td>:</td>
-                                <td>{{ $nasabah->jangka_pinjaman }} Bulan Sampai <b>{{ date('F-Y', strtotime(" +$nasabah->jangka_pinjaman months", strtotime($nasabah->tanggal_pencarian))) }}</b></td>
+                                <td><b class="text-success">{{ date('F-Y', strtotime($nasabah->tanggal_pencarian)) }}</b> Sampai <b class="text-danger">{{ date('F-Y', strtotime(" +$nasabah->jangka_pinjaman months", strtotime($nasabah->tanggal_pencarian))) }}</b></td>
                             </tr>
                             <tr>
                                 <th>Jumlah Angsuran</th>
