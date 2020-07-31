@@ -141,7 +141,7 @@
                                     <td>Rp. {{ number_format($angsuran->pokok_tunggakan, 2, ',', '.') }}</td>
                                     <td>Rp. {{ number_format($angsuran->jasa_dibayar, 2, ',','.') }}</td>
                                     <td>Rp. {{ number_format($angsuran->jasa_tunggakan, 2, ',', '.') }}</td>
-                                    <td>Rp. {{ number_format(($angsuran->sisa+$angsuran->jasa_dibayar), 2, ',', '.') }}</td>
+                                    <td>Rp. {{ number_format(($angsuran->sisa-$angsuran->jasa_dibayar), 2, ',', '.') }}</td>
                                     <td class="align-self-center">
                                         <div class="form-group row">
                                             <a href="{{ route('angsuran.edit', $angsuran->id) }}" class="mr-1">

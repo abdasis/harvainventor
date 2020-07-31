@@ -69,7 +69,7 @@
                             <tr>
                                 <th>Jumlah Angsuran</th>
                                 <td>:</td>
-                                <td>Rp. {{ number_format($nasabah->jumlah_angsuran, 2, ',','.') }}</td>
+                                <td>Rp. {{ $nasabah->jumlah_angsuran . 'x' }} Angsuran</td>
                             </tr>
                         </tbody>
                     </table>
