@@ -46,7 +46,7 @@
                 <div class="col-6">
                     <div class="text-right">
                         <h3 class="text-dark mt-1"><span data-plugin="counterup">{{ $angsurans->count() }}</span></h3>
-                        <p class="text-muted mb-1 text-truncate">Pinjaman {{ date('F') }}</p>
+                        <p class="text-muted mb-1 text-truncate">Angsuran {{ date('F') }}</p>
                     </div>
                 </div>
             </div> <!-- end row-->
@@ -92,21 +92,24 @@
 
 <div class="row">
 
-    <div class="col-12">
+    <div class="col-md-12">
+        <a href="{{ route('angsuran.rekap-bulanan', ['bulan' => date('m')]) }}">
+            <button class="btn btn-danger mb-1"><i class="mdi mdi-printer mr-1"></i>Print Data Angsuran</button>
+        </a>
+    </div>
+    <div class="col-8">
         <div class="card">
             <div class="card-body">
                 <h4 class="header-title">Data Semua Angsuran</h4>
                 <p class="text-muted font-13 mb-4">
                     Data seluruh angsuran yang dibayar oleh nasabah
                 </p>
-
                 <table id="basic-datatable" class="table dt-responsive table-sm nowrap w-100">
                     <thead>
                         <tr>
                             <th>No</th>
                             <th>Nama Nasabah</th>
                             <th>Angsuran Ke</th>
-                            <th>Tanggal Seharusnya</th>
                             <th>Tanggal Pembayaran</th>
                             <th>Sisa</th>
                             <th>Dibayar</th>
@@ -120,7 +123,6 @@
                             <td>{{ $key+1 }}</td>
                             <td>{{ $angsuran->nasabah->nama }}</td>
                             <td>{{ $angsuran->angsuran_ke }}</td>
-                            <td>{{ date('d-m-Y', strtotime($angsuran->tanggal_seharusnya)) }}</td>
                             <td>{{ date('d-m-Y', strtotime($angsuran->tanggal_pembayaran)) }}</td>
                             <td>Rp. {{ number_format($angsuran->sisa, 2, ',', '.') }}</td>
                             <td>{{ date('d-m-Y', strtotime($angsuran->tanggal_pembayaran)) }}</td>
@@ -132,6 +134,32 @@
             </div> <!-- end card body-->
         </div> <!-- end card -->
     </div><!-- end col-->
+
+    <div class="col-4">
+
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title"><h4>Nasabah yang belum bayar bulan ini</h4></div>
+                <p class="text-muted font-13">Dibawah ini nasabah yang belum bayar bulan ini</p>
+                <table id="basic-datatable" class="table dt-responsive table-sm nowrap w-100">
+                    <thead>
+                        <tr>
+                            <td>Nomor</td>
+                            <td>Nama</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($nasabahBelumBayar as $belumBayar)
+                        <tr>
+                            <td>{{ $belumBayar->nomor }}</td>
+                            <td>{{ $belumBayar->nama }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
 

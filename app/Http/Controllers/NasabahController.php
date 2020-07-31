@@ -132,9 +132,11 @@ class NasabahController extends Controller
     {
         $nasabahs = Nasabah::all();
         $angsurans = Angsuran::all();
+        $nasabahBelumBayar = Nasabah::doesntHave('angsuran')->get();
         return view('home')->with([
             'nasabahs' => $nasabahs,
-            'angsurans' => $angsurans
+            'angsurans' => $angsurans,
+            'nasabahBelumBayar' => $nasabahBelumBayar
         ]);
     }
 }

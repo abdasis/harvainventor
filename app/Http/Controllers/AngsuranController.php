@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\AngsuranBulananExport;
 use App\Exports\AngsuranExport;
 use App\Http\Requests\AngsuranRequest;
 use App\Models\Angsuran;
@@ -168,4 +169,10 @@ class AngsuranController extends Controller
     {
         return (new AngsuranExport)->forNasbahId($id)->download('invoices.xlsx');
     }
+
+    public function rekapBulanan($id)
+    {
+        return (new AngsuranBulananExport)->thisMonth($id)->download('invoices.xlsx');
+    }
+
 }

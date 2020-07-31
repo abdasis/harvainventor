@@ -28,6 +28,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('nasabah', 'NasabahController');
     Route::get('angsuran/nasabah/{id}', 'AngsuranController@create')->name('angsuran.create');
     Route::get('angsuran/cetak/{id}', 'AngsuranController@downloadRekap')->name('angsuran.cetak-rekap');
+    Route::get('angsuran/rekap-bulanan/{bulan}', 'AngsuranController@rekapBulanan')->name('angsuran.rekap-bulanan');
     Route::get('angsuran/print/{id}', 'AngsuranController@print')->name('angsuran.print');
     Route::resource('angsuran', 'AngsuranController')->except('create');
     Route::get('logout', 'UserController@logout')->name('user.logout');
