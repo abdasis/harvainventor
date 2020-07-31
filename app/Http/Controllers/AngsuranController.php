@@ -59,6 +59,7 @@ class AngsuranController extends Controller
                 $nasabah = Nasabah::where('nama', $request->nama_nasabah)->first();
                 $angsuranTerakhir = Angsuran::where('nasabah_id', $nasabah->id)->orderBy('created_at', 'desc')->first();
                 $totalAngsuran = Angsuran::where('nasabah_id', $nasabah->id)->orderBy('created_at', 'desc')->count();
+
                 $angsuran = new Angsuran();
                 $angsuran->angsuran_ke = $totalAngsuran+1;
                 $angsuran->tanggal_seharusnya = $request->get('tanggal_seharusnya');
@@ -67,7 +68,7 @@ class AngsuranController extends Controller
                 $angsuran->pokok_tunggakan = $request->get('pokok_tunggakan');
                 $angsuran->jasa_dibayar = $request->get('jasa_dibayar');
                 $angsuran->jasa_tunggakan = $request->get('jasa_tunggakan');
-                $angsuran->sisa = $angsuranTerakhir == null ? $nasabah->total_pinjaman - $request->get('pokok_dibayar') + $request->get('jasa_dibayar') : $angsuranTerakhir->sisa  - $request->get('pokok_dibayar');
+                $angsuran->sisa = $angsuranTerakhir == null ? ($nasabah->total_pinjaman+$nasabah->total_pinjaman * $nasabah->jasa_pinjaman / 100) - ($request->get('pokok_dibayar') + $request->get('jasa_dibayar')) : ($nasabah->total_pinjaman+$nasabah->total_pinjaman * $nasabah->jasa_pinjaman / 100)  - ($request->get('pokok_dibayar') + $request->get('jasa_dibayar'));
                 $angsuran->nasabah_id = $nasabah->id;
                 $angsuran->nama_penyetor = Auth::user()->name;
                 $angsuran->ttd_penyetor = "";
