@@ -4,6 +4,7 @@ namespace App\Exports;
 
 use App\Models\Angsuran;
 use App\Models\Nasabah;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\Exportable;
@@ -23,6 +24,7 @@ class AngsuranBulananExport implements FromQuery, WithHeadings, ShouldAutoSize
             'Nomor',
             'Nama Nasabah',
             'Total Angsuran',
+            'Tanggal Pembayaran'
         ];
     }
 
@@ -33,7 +35,9 @@ class AngsuranBulananExport implements FromQuery, WithHeadings, ShouldAutoSize
     }
     public function query()
     {
-        return Nasabah::query()->join('angsurans', 'angsurans.nasabah_id', '=', 'nasabahs.id')->select('nasabahs.nomor', 'nasabahs.nama','angsurans.pokok_dibayar')->whereMonth('angsurans.created_at', $this->month);
+        return Nasabah::query()->join('angsurans', 'angsurans.nasabah_id', '=', 'nasabahs.id')
+                        ->select('nasabahs.nomor', 'nasabahs.nama','angsurans.pokok_dibayar', 'angsurans.created_at')
+                        ->whereMonth('angsurans.created_at', $this->month);
     }
 }
 

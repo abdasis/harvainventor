@@ -61,11 +61,14 @@
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <label for="dibayar">Dibayar</label>
-                                        <input type="text" class="form-control" placeholder="Masukan jumlah pembayaran pokok" name="pokok_dibayar">
+                                        <input type="text" class="form-control" placeholder="Masukan jumlah pembayaran pokok" name="pokok_dibayar" id="pokok_dibayar">
+                                        <p class="font-weight-bolder"  id="pokok_rupiah"></p>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="tunggakan">Tunggakan</label>
-                                        <input type="text" class="form-control" placeholder="Masukan jumlah tunggakan pokok" name="pokok_tunggakan">
+                                        <input type="text" class="form-control" placeholder="Masukan jumlah tunggakan pokok" name="pokok_tunggakan" id="pokok_tunggakan">
+                                        <p class="font-weight-bolder"  id="pokok_tukunggakan_rupiah"></p>
+
                                     </div>
                                 </div>
                             </div>
@@ -78,11 +81,15 @@
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <label for="dibayar">Dibayar</label>
-                                        <input type="text" class="form-control" placeholder="Masukan jumlah bayaran jasa" name="jasa_dibayar">
+                                        <input type="text" class="form-control" placeholder="Masukan jumlah bayaran jasa" name="jasa_dibayar" id="jasa_dibayar">
+                                        <p class="font-weight-bolder"  id="jasa_rupiah"></p>
+
                                     </div>
                                     <div class="col-md-6">
                                         <label for="tunggakan">Tunggakan</label>
-                                        <input type="text" class="form-control" placeholder="Masukan jumlah tunggakan jasa" name="jasa_tunggakan">
+                                        <input type="text" class="form-control" placeholder="Masukan jumlah tunggakan jasa" name="jasa_tunggakan" id="jasa_tunggakan">
+                                        <p class="font-weight-bolder"  id="jasa_tunggakan_rupiah"></p>
+
                                     </div>
                                 </div>
                             </div>
@@ -232,12 +239,20 @@ $('.btn-hapus').on('click', function(e){
                 }
             })
 
-            $('#total_pinjaman').keyup(function(){
-                $('#total_pinjaman_rupiah').text(formatRupiah($('#total_pinjaman').val(), 'Rp.'))
+            $('#pokok_dibayar').keyup(function(){
+                $('#pokok_rupiah').text(formatRupiah($('#pokok_dibayar').val(), 'Rp.'))
             })
 
-            $('#total_jasa').keyup(function(){
-                $('#total_jasa_rupiah').text(formatRupiah($('#total_jasa').val(), 'Rp.'))
+            $('#pokok_tunggakan').keyup(function(){
+                $('#pokok_tunggakan_rupiah').text(formatRupiah($('#pokok_tunggakan').val(), 'Rp.'))
+            })
+
+            $('#jasa_dibayar').keyup(function(){
+                $('#jasa_rupiah').text(formatRupiah($('#jasa_dibayar').val(), 'Rp.'))
+            })
+
+            $('#jasa_tunggakan').keyup(function(){
+                $('#jasa_tunggakan_rupiah').text(formatRupiah($('#jasa_tunggakan').val(), 'Rp.'))
             })
 
 

@@ -132,11 +132,13 @@ class NasabahController extends Controller
     {
         $nasabahs = Nasabah::all();
         $angsurans = Angsuran::all();
-        $nasabahBelumBayar = Nasabah::doesntHave('angsuran')->get();
+        $totalBayar = Angsuran::whereMonth('created_at', date('m'))->sum('pokok_dibayar');
+        $nasabahBelumBayar = Nasabah::doesntHave('angsuran')->whereMonth('created_at', date('m'))->get();
         return view('home')->with([
             'nasabahs' => $nasabahs,
             'angsurans' => $angsurans,
-            'nasabahBelumBayar' => $nasabahBelumBayar
+            'nasabahBelumBayar' => $nasabahBelumBayar,
+            'totalAngsuran' => $totalBayar
         ]);
     }
 }

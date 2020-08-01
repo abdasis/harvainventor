@@ -131,6 +131,8 @@
                     </tbody>
                 </table>
 
+                <h4 >Total Angsuran Bulan Ini: Rp. <span class="text-danger font-weight-bolder">{{ number_format($totalAngsuran, 2, ',','.') }}</span></h4>
+
             </div> <!-- end card body-->
         </div> <!-- end card -->
     </div><!-- end col-->
