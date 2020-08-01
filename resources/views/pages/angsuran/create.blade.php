@@ -67,7 +67,7 @@
                                     <div class="col-md-6">
                                         <label for="tunggakan">Tunggakan</label>
                                         <input type="text" class="form-control" placeholder="Masukan jumlah tunggakan pokok" name="pokok_tunggakan" id="pokok_tunggakan">
-                                        <p class="font-weight-bolder"  id="pokok_tukunggakan_rupiah"></p>
+                                        <p class="font-weight-bolder"  id="pokok_tunggakan_rupiah"></p>
 
                                     </div>
                                 </div>

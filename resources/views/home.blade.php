@@ -92,18 +92,36 @@
 
 <div class="row">
 
-    <div class="col-md-12">
-        <a href="{{ route('angsuran.rekap-bulanan', ['bulan' => date('m')]) }}">
-            <button class="btn btn-danger mb-1"><i class="mdi mdi-printer mr-1"></i>Print Data Angsuran</button>
-        </a>
+    <div class="col-md-8 mb-2">
+        <div class="row align-self-center">
+            <div class="col-6">
+                <a href="{{ route('angsuran.rekap-bulanan', ['bulan' => date('m')]) }}">
+                    <button class="btn btn-danger"><i class="mdi mdi-printer mr-1"></i>Print Data Angsuran</button>
+                </a>
+            </div>
+        </div>
+
     </div>
     <div class="col-8">
+
         <div class="card">
             <div class="card-body">
                 <h4 class="header-title">Data Semua Angsuran</h4>
-                <p class="text-muted font-13 mb-4">
+                <p class="text-muted font-13">
                     Data seluruh angsuran yang dibayar oleh nasabah
                 </p>
+                <div class="row justify-content-end">
+                    <div class="col-md-4 mr-">
+                        <div class="container">
+                            <form action="{{ route('nasabah.dashboard') }}"  class="form-inline mb-1" method="get">
+                                <div class="form-group">
+                                    <input type="text" id="range-datepicker" name="filter_tanggal" class="form-control form-control-sm rounded-0" placeholder="2018-10-03 to 2018-10-10">
+                                    <button type="submit" class="btn btn-sm shadow-none rounded-0 btn-blue "><i class="mdi mdi-filter"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
                 <table id="basic-datatable" class="table dt-responsive table-sm nowrap w-100">
                     <thead>
                         <tr>
@@ -183,8 +201,11 @@
 <script src="{{ url('/') }}/assets/libs/pdfmake/build/pdfmake.min.js"></script>
 <script src="{{ url('/') }}/assets/libs/pdfmake/build/vfs_fonts.js"></script>
 <script src="{{ url('/') }}/assets/js/pages/datatables.init.js"></script>
-
-
+<script src="{{ url('/') }}/assets/libs/flatpickr/flatpickr.min.js"></script>
+<script src="{{ url('/') }}/assets/libs/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<script src="{{ url('/') }}/assets/libs/clockpicker/bootstrap-clockpicker.min.js"></script>
+<script src="{{ url('/') }}/assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="{{ url('/') }}/assets/js/pages/form-pickers.init.js"></script>
 <script>
     $('.btn-hapus').on('click', function(e){
         e.preventDefault();
