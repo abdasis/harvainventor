@@ -115,7 +115,7 @@
                         <div class="container">
                             <form action="{{ route('nasabah.dashboard') }}"  class="form-inline mb-1" method="get">
                                 <div class="form-group">
-                                    <input type="text" id="range-datepicker" name="filter_tanggal" class="form-control form-control-sm rounded-0" placeholder="2018-10-03 to 2018-10-10">
+                                    <input type="text" id="range-datepicker" name="filter_tanggal" class="form-control form-control-sm rounded-0" placeholder="{{ Session::get('filter') ?? '2018-10-03 to 2018-10-10' }}">
                                     <button type="submit" class="btn btn-sm shadow-none rounded-0 btn-blue "><i class="mdi mdi-filter"></i></button>
                                 </div>
                             </form>
