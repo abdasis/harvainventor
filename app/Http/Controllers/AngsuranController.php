@@ -167,12 +167,13 @@ class AngsuranController extends Controller
 
     public function downloadRekap($id)
     {
-        return (new AngsuranExport)->forNasbahId($id)->download('invoices.xlsx');
+        $nasabah = Nasabah::find($id);
+        return (new AngsuranExport)->forNasbahId($id)->download( 'rekapan-nasabah-' . $nasabah->nama . '.xlsx');
     }
 
     public function rekapBulanan($id)
     {
-        return (new AngsuranBulananExport)->thisMonth($id)->download('invoices.xlsx');
+        return (new AngsuranBulananExport)->thisMonth($id)->download('rekapan-bulan-' . date('F') . '.xlsx');
     }
 
 }

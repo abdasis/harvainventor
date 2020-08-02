@@ -45,8 +45,8 @@
                 </div>
                 <div class="col-6">
                     <div class="text-right">
-                        <h3 class="text-dark mt-1"><span data-plugin="counterup">{{ $angsurans->count() }}</span></h3>
-                        <p class="text-muted mb-1 text-truncate">Angsuran {{ date('F') }}</p>
+                        <h3 class="text-dark mt-1"><span data-plugin="counterup">{{ App\Models\Angsuran::whereMonth('created_at',date('m'))->count() }}</span></h3>
+                        <p class="text-muted mb-1 text-truncate">{{ date('F') }}</p>
                     </div>
                 </div>
             </div> <!-- end row-->
@@ -81,8 +81,8 @@
                 </div>
                 <div class="col-6">
                     <div class="text-right">
-                        <h3 class="text-dark mt-1"><span data-plugin="counterup">{{ App\Models\Angsuran::whereDay('created_at', date('d'))->count() }}</span></h3>
-                        <p class="text-muted mb-1 ">Bayar Hari  Ini</p>
+                        <h3 class="text-dark mt-1"><span data-plugin="counterup">{{ App\Models\Angsuran::all()->count() }}</span></h3>
+                        <p class="text-muted mb-1 ">Total Angsuran</p>
                     </div>
                 </div>
             </div> <!-- end row-->
@@ -126,9 +126,10 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Nasabah</th>
-                            <th>Angsuran Ke</th>
-                            <th>Tanggal Pembayaran</th>
+                            <th>Nama</th>
+                            <th>Ke</th>
+                            <th>Jumlah</th>
+                            <th>Tanggal</th>
                             <th>Sisa</th>
                             <th>Dibayar</th>
                         </tr>
@@ -141,6 +142,7 @@
                             <td>{{ $key+1 }}</td>
                             <td>{{ $angsuran->nasabah->nama }}</td>
                             <td>{{ $angsuran->angsuran_ke }}</td>
+                            <td>{{ number_format(($angsuran->pokok_dibayar + $angsuran->jasa_dibayar), 2, ',', '.') }}</td>
                             <td>{{ date('d-m-Y', strtotime($angsuran->tanggal_pembayaran)) }}</td>
                             <td>Rp. {{ number_format($angsuran->sisa, 2, ',', '.') }}</td>
                             <td>{{ date('d-m-Y', strtotime($angsuran->tanggal_pembayaran)) }}</td>
@@ -159,8 +161,8 @@
 
         <div class="card">
             <div class="card-body">
-                <div class="card-title"><h4>Nasabah yang belum bayar bulan ini</h4></div>
-                <p class="text-muted font-13">Dibawah ini nasabah yang belum bayar bulan ini</p>
+                <div class="card-title"><h4>Nasabah yang sudah bayar bulan ini</h4></div>
+                <p class="text-muted font-13">Dibawah ini nasabah yang sudah bayar bulan ini</p>
                 <table id="basic-datatable" class="table dt-responsive table-sm nowrap w-100">
                     <thead>
                         <tr>
@@ -171,8 +173,8 @@
                     <tbody>
                         @foreach ($nasabahBelumBayar as $belumBayar)
                         <tr>
-                            <td>{{ $belumBayar->nomor }}</td>
-                            <td>{{ $belumBayar->nama }}</td>
+                            <td>{{ $belumBayar->nasabah->nomor }}</td>
+                            <td>{{ $belumBayar->nasabah->nama }}</td>
                         </tr>
                         @endforeach
                     </tbody>

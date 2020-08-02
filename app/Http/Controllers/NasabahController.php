@@ -136,22 +136,25 @@ class NasabahController extends Controller
             $angsurans = Angsuran::whereBetween('created_at', [$tanggalAwal, $tanggalAkhir])->get();
             $nasabahs = Nasabah::all();
             $totalBayar = Angsuran::whereMonth('created_at', date('m'))->sum('pokok_dibayar');
-            $nasabahBelumBayar = Nasabah::doesntHave('angsuran')->whereMonth('created_at', date('m'))->get();
+            $nasabahBelumBayar = Angsuran::has('nasabah')->whereMonth('created_at', date('m'))->get();
             Session::flash('filter', $request->get('filter_tanggal'));
 
         }else{
             $nasabahs = Nasabah::all();
             $angsurans = Angsuran::all();
             $totalBayar = Angsuran::whereMonth('created_at', date('m'))->sum('pokok_dibayar');
-            $nasabahBelumBayar = Nasabah::doesntHave('angsuran')->whereMonth('created_at', date('m'))->get();
+            $totalJasa = Angsuran::whereMonth('created_at', date('m'))->sum('jasa_dibayar');
+            $nasabahBelumBayar = Angsuran::has('nasabah')->whereMonth('created_at', date('m'))->get();
             Session::forget('filter');
         }
+
+        // dd($nasabahBelumBayar);
 
         return view('home')->with([
             'nasabahs' => $nasabahs,
             'angsurans' => $angsurans,
             'nasabahBelumBayar' => $nasabahBelumBayar,
-            'totalAngsuran' => $totalBayar
+            'totalAngsuran' => $totalBayar + $totalJasa
         ]);
     }
 }

@@ -43,7 +43,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Print Struk</title>
+    <title>Struk Angsuran {{ date('d-m-Y') }} {{ $nasabah->nama }}</title>
     <style>
         /*yang ini buat setting ukuran kertasnya assumsi A4 */
         #A4 {
