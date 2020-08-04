@@ -54,8 +54,42 @@
                         </div>
 
                         <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-2">
+                                    <label for="nama_kelompok">Tahun Berdiri</label>
+                                    <input type="text" class="form-control bg-gray" name="berdiri" placeholder="{{ date('Y') }}">
+                                </div>
+                                <div class="col-md-5">
+                                    <label for="nama_kelompok">Kepala Desa</label>
+                                    <input type="text" class="form-control bg-gray" name="kepala_desa" placeholder="Masukan Nama Kepala Desa">
+                                </div>
+                                <div class="col-md-5">
+                                    <label for="nama_kelompok">Desa</label>
+                                    <input type="text" class="form-control bg-gray" name="desa" placeholder="Masukan Nama Desa">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label for="alamat">Alamat Kelompok</label>
                             <textarea name="alamat" class="form-control" id="alamat" cols="30" rows="10" placeholder="Masukan alamat kelompok">{{ old('alamat_kelompok') }}</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-4">
+                                    <label for="nama_kelompok">Ketua</label>
+                                    <input type="text" class="form-control bg-gray" name="ketua" placeholder="Masukan Nama Ketua">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="nama_kelompok">Sekretaris</label>
+                                    <input type="text" class="form-control bg-gray" name="sekretaris" placeholder="Masukan Nama Sekretaris">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="nama_kelompok">Bendahara</label>
+                                    <input type="text" class="form-control bg-gray" name="bendahara" placeholder="Masukan Nama Bendahara">
+                                </div>
+                            </div>
                         </div>
 
                         <div class="form-group">

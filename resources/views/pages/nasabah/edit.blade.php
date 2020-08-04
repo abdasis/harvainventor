@@ -1,6 +1,4 @@
 @extends('layouts.app')
-
-
 @section('content')
     <!-- start page title -->
     <div class="row">
@@ -31,7 +29,6 @@
         </div>
     </div>
     <!-- end page title -->
-
     @include('components.alert')
     <div class="row">
         <div class="col-md-12">
@@ -56,11 +53,46 @@
                             <input type="text" class="form-control" name="nama_kelompok" value="{{ $nasabah->nama }}" placeholder="Masukan nama kelompok">
                         </div>
 
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-2">
+                                    <label for="nama_kelompok">Tahun Berdiri</label>
+                                    <input type="text" class="form-control bg-gray" name="berdiri" value="{{ $nasabah->berdiri }}" placeholder="{{ date('Y') }}">
+                                </div>
+                                <div class="col-md-5">
+                                    <label for="nama_kelompok">Kepala Desa</label>
+                                    <input type="text" class="form-control bg-gray" value="{{ $nasabah->kepala_desa }}" name="kepala_desa" placeholder="Masukan Nama Kepala Desa">
+                                </div>
+                                <div class="col-md-5">
+                                    <label for="nama_kelompok">Desa</label>
+                                    <input type="text" class="form-control bg-gray" value="{{ $nasabah->desa }}" name="desa" placeholder="Masukan Nama Desa">
+                                </div>
+                            </div>
+                        </div>
+
 
                         <div class="form-group">
                             <label for="alamat">Alamat Kelompok</label>
                             <textarea name="alamat" class="form-control" id="alamat" cols="30" rows="10" placeholder="Masukan alamat kelompok">{{ $nasabah->alamat }}</textarea>
                         </div>
+
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-4">
+                                    <label for="nama_kelompok">Ketua</label>
+                                    <input type="text" class="form-control bg-gray" name="ketua" value="{{ $nasabah->ketua }}" placeholder="Masukan Nama Ketua">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="nama_kelompok">Sekretaris</label>
+                                    <input type="text" class="form-control bg-gray" name="sekretaris" value="{{ $nasabah->sekretaris }}" placeholder="Masukan Nama Sekretaris">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="nama_kelompok">Bendahara</label>
+                                    <input type="text" class="form-control bg-gray" name="bendahara" value="{{ $nasabah->bendahara }}" placeholder="Masukan Nama Bendahara">
+                                </div>
+                            </div>
+                        </div>
+
 
                         <div class="form-group">
                             <div class="form-row">
@@ -83,8 +115,6 @@
                                     <label for="total_pinjaman">Total Pinjaman</label>
                                     <input type="text" class="form-control" placeholder="Masukan total pinjaman" name="total_pinjaman" value="{{ $nasabah->total_pinjaman }}">
                                 </div>
-
-
                             </div>
                         </div>
 

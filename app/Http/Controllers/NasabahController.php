@@ -45,7 +45,13 @@ class NasabahController extends Controller
             $nasabah = new Nasabah();
             $nasabah->nomor = $request->get('nomor');
             $nasabah->nama = $request->get('nama_kelompok');
+            $nasabah->berdiri = $request->get('berdiri');
+            $nasabah->kepala_desa = $request->get('kepala_desa');
+            $nasabah->desa = $request->get('desa');
             $nasabah->alamat = $request->get('alamat');
+            $nasabah->ketua = $request->get('ketua');
+            $nasabah->sekretaris = $request->get('sekretaris');
+            $nasabah->bendahara = $request->get('bendahara');
             $nasabah->total_pinjaman = $request->get('total_pinjaman');
             $nasabah->jasa_pinjaman = $request->get('jasa_pinjaman');
             $nasabah->tanggal_pencarian = $request->get('pencairan');
@@ -97,7 +103,13 @@ class NasabahController extends Controller
             $nasabah = Nasabah::find($id);
             $nasabah->nomor = $request->get('nomor');
             $nasabah->nama = $request->get('nama_kelompok');
+            $nasabah->berdiri = $request->get('berdiri');
+            $nasabah->kepala_desa = $request->get('kepala_desa');
+            $nasabah->desa = $request->get('desa');
             $nasabah->alamat = $request->get('alamat');
+            $nasabah->ketua = $request->get('ketua');
+            $nasabah->sekretaris = $request->get('sekretaris');
+            $nasabah->bendahara = $request->get('bendahara');
             $nasabah->total_pinjaman = $request->get('total_pinjaman');
             $nasabah->jasa_pinjaman = $request->get('jasa_pinjaman');
             $nasabah->tanggal_pencarian = $request->get('pencairan');

@@ -18,6 +18,12 @@ class CreateNasabahsTable extends Migration
             $table->string('nomor', 100)->nullable();
             $table->string('nama', 100)->nullable();
             $table->longText('alamat')->nullable();
+            $table->string('berdiri', 5)->nullable();
+            $table->string('desa', 100);
+            $table->string('kepala_desa', 100);
+            $table->string('ketua', 100);
+            $table->string('sekretaris', 100);
+            $table->string('bendahara', 100);
             $table->double('total_pinjaman');
             $table->double('jasa_pinjaman');
             $table->string('tanggal_pencarian');

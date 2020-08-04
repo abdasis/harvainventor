@@ -44,8 +44,24 @@
 
                         @csrf
                         <div class="form-group">
-                            <label for="nama_kelompok">Nama</label>
-                            <input type="text" class="form-control bg-gray" name="nama" placeholder="Masukan nama anggota">
+                            <div class="form-row">
+                                <div class="col-md-8">
+                                    <label for="nama_kelompok">Nama</label>
+                                    <input type="text" class="form-control bg-gray" name="nama" placeholder="Masukan nama anggota">
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="jabatan">Jabatan</label>
+                                        <select required id="jabatan" class="form-control" name="jabatan">
+                                            <option value="">Pilih Jabatan</option>
+                                            <option value="Ketua">Ketua</option>
+                                            <option value="Sekretaris">Sekretaris</option>
+                                            <option value="Bendahara">Bendahara</option>
+                                            <option value="Anggota">Anggota</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="form-group">

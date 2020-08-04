@@ -16,6 +16,7 @@ class CreateAnggotasTable extends Migration
         Schema::create('anggotas', function (Blueprint $table) {
             $table->id();
             $table->string('nama', 100);
+            $table->string('jabatan', 100);
             $table->longText('alamat')->nullable();
             $table->string('rt', 100)->nullable();
             $table->string('rw', 100)->nullable();

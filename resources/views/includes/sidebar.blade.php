@@ -49,6 +49,9 @@
                                         <li>
                                             <a href="{{ route('nasabah.index') }}">Data Nasabah</a>
                                         </li>
+                                        <li>
+                                            <a href="{{ route('pernyataan.create') }}">Surat Pernyataan</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
