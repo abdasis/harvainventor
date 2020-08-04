@@ -123,6 +123,7 @@
                         <thead>
                             <tr>
                                 <th class="align-middle text-center">#</th>
+                                <th class="align-middle text-center">Jabatan</th>
                                 <th class="align-middle text-center">Nama</th>
                                 <th class="align-middle text-center">Alamat</th>
                                 <th class="align-middle text-center">RT/RW</th>
@@ -136,7 +137,7 @@
                             @foreach ($anggotas as $key => $anggota)
                                 <tr>
                                     <td>{{ $key+1 }}</td>
-                                    <td>{{ $anggota->nama }}</td>
+                                    <td>{{ $anggota->jabatan }}</td>
                                     <td>{{ $anggota->alamat }}</td>
                                     <td>{{ $anggota->rt . '/' . $anggota->rw }}</td>
                                     <td>{{ $anggota->jenis_usaha }}</td>
