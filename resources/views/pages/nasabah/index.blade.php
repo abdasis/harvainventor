@@ -50,11 +50,11 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Kelompok</th>
+                            <th>Kelompok</th>
                             <th>Pinjaman</th>
                             <th>Jasa</th>
-                            <th>Jumlah Angsuran</th>
-                            <th>Tanggal Pencairan</th>
+                            <th>Angsuran</th>
+                            <th>Pencairan</th>
                             <th>Total Pinjaman</th>
                             <th>Option</th>
                         </tr>
@@ -85,9 +85,15 @@
                                         <i class="fas fa-eye"></i>
                                     </div>
                                 </a>
-                                <a href="{{ route('angsuran.create', $nasabah->id) }}">
+                                <a href="{{ route('angsuran.create', $nasabah->id) }}" class="mr-1">
                                     <div class="btn btn-success btn-sm waves-ripple">
                                         <i class="fas fa-cash-register"></i>
+                                    </div>
+                                </a>
+
+                                <a href="{{ route('anggota.create', $nasabah->id) }}">
+                                    <div class="btn btn-blue btn-sm waves-ripple">
+                                        <i class="fas fa-users"></i>
                                     </div>
                                 </a>
                             </td>
@@ -119,6 +125,7 @@
 <script src="{{ url('/') }}/assets/libs/pdfmake/build/pdfmake.min.js"></script>
 <script src="{{ url('/') }}/assets/libs/pdfmake/build/vfs_fonts.js"></script>
 <script src="{{ url('/') }}/assets/js/pages/datatables.init.js"></script>
+
 
 
 <script>
