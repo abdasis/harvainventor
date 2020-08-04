@@ -45,6 +45,7 @@ class AnggotaController extends Controller
 
         $anggota = new Anggota();
         $anggota->nama = $request->get('nama');
+        $anggota->jabatan = $request->get('jabatan');
         $anggota->alamat = $request->get('alamat');
         $anggota->rt = $request->get('rt');
         $anggota->rw = $request->get('rw');
@@ -95,6 +96,7 @@ class AnggotaController extends Controller
     {
         $anggota = Anggota::find($id);
         $anggota->nama = $request->get('nama');
+        $anggota->jabatan = $request->get('jabatan');
         $anggota->alamat = $request->get('alamat');
         $anggota->rt = $request->get('rt');
         $anggota->rw = $request->get('rw');
