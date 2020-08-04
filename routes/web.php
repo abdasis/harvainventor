@@ -34,6 +34,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('logout', 'UserController@logout')->name('user.logout');
     Route::resource('user', 'UserController');
     Route::get('anggota/create/{kelompok}', 'AnggotaController@create')->name('anggota.create');
+    Route::get('anggota/pernyataan/{kelompok}', 'AnggotaController@pernyataan')->name('anggota.pernyataan');
     Route::resource('anggota', 'AnggotaController')->except(['create']);
     Route::resource('pernyataan', 'PernyataanController');
 });

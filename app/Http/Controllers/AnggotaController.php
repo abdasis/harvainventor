@@ -123,4 +123,10 @@ class AnggotaController extends Controller
     {
         //
     }
+
+    public function pernyataan($id)
+    {
+        $anggota = Anggota::find($id);
+        return view('pages.pernyataan.show')->withPernyataan($anggota);
+    }
 }

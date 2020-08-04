@@ -63,9 +63,10 @@ class PernyataanController extends Controller
      * @param  \App\Models\Pernyataan  $pernyataan
      * @return \Illuminate\Http\Response
      */
-    public function show(Pernyataan $pernyataan)
+    public function show($id)
     {
-        //
+        $pernyataan = Pernyataan::find($id);
+        return view('pages.pernyataan.show')->withPernyataan($pernyataan);
     }
 
     /**

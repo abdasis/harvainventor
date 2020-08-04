@@ -56,6 +56,11 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="nama_kelompok">Total Pinjaman</label>
+                            <input type="text" class="form-control bg-gray" name="total_pinjaman" placeholder="Masukan Desa">
+                        </div>
+
+                        <div class="form-group">
                             <button class="btn btn-blue waves-effect float-right" type="submit"><i class="fa fa-save mr-1"></i>Simpan Data</button>
                         </div>
                     </form>
@@ -94,8 +99,12 @@
                                     <td>{{ $pernyataan->alamat }}</td>
                                     <td>{{ $pernyataan->desa }}</td>
                                     <td class="text-center">
-                                        <a href="{{ route('pernyataan.edit', $pernyataan->id) }}">
+                                        <a href="{{ route('pernyataan.edit', $pernyataan->id) }}" class="mr-1">
                                             <button class="btn btn-warning btn-sm mr-1"><i class="fa fa-edit"></i></button>
+                                        </a>
+
+                                        <a href="{{ route('pernyataan.show', $pernyataan->id) }}">
+                                            <button class="btn btn-danger btn-sm mr-1"><i class="fa fa-file-pdf"></i></button>
                                         </a>
                                     </td>
                                 </tr>
@@ -126,6 +135,47 @@
 <script src="{{ url('/') }}/assets/libs/select2/js/select2.min.js"></script>
 <script src="{{ url('/') }}/assets/js/pages/datatables.init.js"></script>
 <script src="{{ url('/') }}/assets/js/pages/form-advanced.init.js"></script>
+<script>
+    $(document).ready(function(){
+
+        $('#jasa_pinjaman').keyup(function(event){
+            let total_pinjaman = $('#total_pinjaman').val();
+            let jasa_pinjaman = $('#jasa_pinjaman').val();
+            if ($('#total_pinjaman').val() == "") {
+                $('#total_jasa').val(0);
+            }else{
+                $('#total_jasa').val(total_pinjaman * jasa_pinjaman / 100);
+            }
+        })
+
+        $('#total_pinjaman').keyup(function(){
+            $('#total_pinjaman_rupiah').text(formatRupiah($('#total_pinjaman').val(), 'Rp.'))
+        })
+
+        $('#jasa_pinjaman').keyup(function(){
+            $('#total_jasa_rupiah').text(formatRupiah($('#total_jasa').val(), 'Rp.'))
+        })
+
+
+    })
+
+    function formatRupiah(angka, prefix){
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+        split   		= number_string.split(','),
+        sisa     		= split[0].length % 3,
+        rupiah     		= split[0].substr(0, sisa),
+        ribuan     		= split[0].substr(sisa).match(/\d{3}/gi);
+
+        // tambahkan titik jika yang di input sudah menjadi angka ribuan
+        if(ribuan){
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
+</script>
 <script>
     $(document).ready(function(){
 

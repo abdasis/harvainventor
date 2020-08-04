@@ -146,6 +146,10 @@
                                         <a href="{{ route('anggota.edit', $anggota->id) }}">
                                             <button class="btn btn-warning btn-sm mr-1"><i class="fa fa-edit"></i></button>
                                         </a>
+
+                                        <a href="{{ route('anggota.pernyataan', $anggota->id) }}">
+                                            <button class="btn btn-danger btn-sm mr-1"><i class="fa fa-file-pdf"></i></button>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach
