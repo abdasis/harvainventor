@@ -138,6 +138,7 @@
                                 <tr>
                                     <td>{{ $key+1 }}</td>
                                     <td>{{ $anggota->jabatan }}</td>
+                                    <td>{{ $anggota->nama }}</td>
                                     <td>{{ $anggota->alamat }}</td>
                                     <td>{{ $anggota->rt . '/' . $anggota->rw }}</td>
                                     <td>{{ $anggota->jenis_usaha }}</td>
