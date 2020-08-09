@@ -101,7 +101,7 @@
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
                     <p class="text-center">
-                        Penidon, {{ date('d F Y') }}
+                        Penidon, {{ tanggalIndonesia(date('d F Y')) }}
                     </p>
                 </div>
             </div>

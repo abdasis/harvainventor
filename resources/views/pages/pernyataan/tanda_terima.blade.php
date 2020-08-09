@@ -15,7 +15,7 @@
         <div class="container bg-transparent p-3">
             <h3 class="text-center font-weight-bolder"><u>TANDA TERIMA PENYALURAN PINJAMAN & PENGAKUAN HUTANG</u></h3>
             <br>
-            <p>Pada hari ini, Selasa tanggal {{ date('m F Y') }} </p>
+            <p>Pada hari ini, Selasa tanggal {{ tanggalIndonesia(date('m F Y')) }} </p>
             <table>
                 <tr>
                     <td>Anggota Kelompok</td>
