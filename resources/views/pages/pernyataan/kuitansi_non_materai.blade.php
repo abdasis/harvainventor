@@ -16,7 +16,7 @@
 
         <div class="container bg-transparent p-3">
             <h1 class="text-center font-weight-bolder">UNIT PENGELOLA GIATAKAN <br> (UPK)</h1>
-            <p class="text-center"><b>KECAMATAN PLUMPANG - KABUPATEN TUBAN - PROV. JATIM</b></p>
+            <p class="text-center"><b>{{ $pernyataan->desa }} - KABUPATEN TUBAN - PROV. JATIM</b></p>
             <br>
             <h1 class="text-center"><u>KUITANSI</u></h1>
             <p class="text-center">NO: 067/SPP-03/VIII/2020</p>
@@ -24,7 +24,7 @@
                 <tr>
                     <td>Telah terima Dari</td>
                     <td>:</td>
-                    <th>Unit Pengelola Kegiatan (UPK) Kecamatan Plumpang</th>
+                    <th>Unit Pengelola Kegiatan (UPK) {{ $pernyataan->desa }}</th>
                 </tr>
 
                 <tr>
@@ -86,7 +86,7 @@
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
                     <p class="text-center">
-                        Penidon, {{ tanggalIndonesia(date('d F Y')) }}
+                        {{ $pernyataan->desa }}, {{ tanggalIndonesia(date('d F Y')) }}
                     </p>
                 </div>
             </div>

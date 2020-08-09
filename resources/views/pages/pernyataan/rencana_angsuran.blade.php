@@ -52,34 +52,13 @@
                     <td>:</td>
                     <th>{{ tanggalIndonesia($pernyataan->tanggal_pencarian) }}</th>
                 </tr>
+
                 <tr>
-                    <td>Untuk Keperluan</td>
+                    <td>JANGKA WAKTU</td>
                     <td>:</td>
-                    <td>
-                        <table>
-                            <tr>
-                                <td>Dana Pinjaman</td>
-                                <td>:</td>
-                                <td>{{ $pernyataan->jenis_pinjaman }}</td>
-                            </tr>
-                            <tr>
-                                <td>Jumlah Anggota</td>
-                                <td>:</td>
-                                <td>{{ $pernyataan->anggota->count() }}</td>
-                            </tr>
-                            <tr>
-                                <td>Kelompok</td>
-                                <td>:</td>
-                                <td>{{ $pernyataan->nama }}</td>
-                            </tr>
-                            <tr>
-                                <td>Desan</td>
-                                <td>:</td>
-                                <td>{{ $pernyataan->desa }}</td>
-                            </tr>
-                        </table>
-                    </td>
+                    <th>{{ tanggalIndonesia($pernyataan->tanggal_pencarian) }}</th>
                 </tr>
+
             </table>
 
             <br>
@@ -101,7 +80,7 @@
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
                     <p class="text-center">
-                        Penidon, {{ tanggalIndonesia(date('d F Y')) }}
+                        {{ $pernyataan->desa }}, {{ tanggalIndonesia(date('d F Y')) }}
                     </p>
                 </div>
             </div>
