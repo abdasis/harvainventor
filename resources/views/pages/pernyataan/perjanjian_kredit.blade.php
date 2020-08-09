@@ -177,7 +177,7 @@
                 </div>
                 <div class="col-md-4">
                     <p class="text-right">
-                        {{ $pernyataan->desa }}, {{ tanggalIndonesia(date('d F Y')) }}
+                        {{ $nasabah->desa }}, {{ tanggalIndonesia(date('d F Y')) }}
                     </p>
                 </div>
             </div>
