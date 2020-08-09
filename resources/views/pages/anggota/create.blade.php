@@ -112,6 +112,20 @@
     </div>
 
     <div class="row">
+        <div class="col-12 mb-2">
+            <a href="{{ route('anggota.perjanjian-kredit', $nasabah->id) }}">
+                <div class="btn btn-danger"><i class="fa fa-print mr-1"></i>Print Perjanjian Kredit</div>
+            </a>
+            <a href="{{ route('anggota.kuasa', $nasabah->id) }}">
+                <div class="btn btn-danger"><i class="fa fa-print mr-1"></i>Print Surat Kuasa</div>
+            </a>
+            <a href="{{ route('anggota.pencairan', $nasabah->id) }}">
+                <div class="btn btn-danger"><i class="fa fa-print mr-1"></i>Print Surat Pencairan</div>
+            </a>
+            <a href="{{ route('anggota.tanda-terima', $nasabah->id) }}">
+                <div class="btn btn-danger"><i class="fa fa-print mr-1"></i>Print Tanda Terima</div>
+            </a>
+        </div>
         <div class="col-12">
             <div class="card">
                 <div class="card-body">

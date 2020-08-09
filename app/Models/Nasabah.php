@@ -8,11 +8,11 @@ class Nasabah extends Model
 {
     public function angsuran()
     {
-        return $this->hasMany(Angsuran::class);
+        return $this->hasOne(Angsuran::class);
     }
 
     public function anggota()
     {
-        return $this->belongsTo(Anggota::class);
+        return $this->hasMany(Anggota::class);
     }
 }

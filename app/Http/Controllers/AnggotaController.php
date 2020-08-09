@@ -129,4 +129,29 @@ class AnggotaController extends Controller
         $anggota = Anggota::find($id);
         return view('pages.pernyataan.show')->withPernyataan($anggota);
     }
+
+    public function perjanjianKredit($id)
+    {
+        $nasabah = Nasabah::find($id);
+        return view('pages.pernyataan.perjanjian_kredit')->withNasabah($nasabah);
+    }
+
+    public function kuasa($id)
+    {
+        $nasabah = Nasabah::find($id);
+        return view('pages.pernyataan.surat_kuasa')->withPernyataan($nasabah);
+
+    }
+
+    public function pencairan ($id)
+    {
+        $nasabah = Nasabah::find($id);
+        return view('pages.pernyataan.berita_acara')->withPernyataan($nasabah);
+    }
+
+    public function tandaTerima ($id)
+    {
+        $nasabah = Nasabah::find($id);
+        return view('pages.pernyataan.tanda_terima')->withPernyataan($nasabah);
+    }
 }

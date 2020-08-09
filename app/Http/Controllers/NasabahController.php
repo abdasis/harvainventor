@@ -148,6 +148,7 @@ class NasabahController extends Controller
             $angsurans = Angsuran::whereBetween('created_at', [$tanggalAwal, $tanggalAkhir])->get();
             $nasabahs = Nasabah::all();
             $totalBayar = Angsuran::whereMonth('created_at', date('m'))->sum('pokok_dibayar');
+            $totalJasa = Angsuran::whereMonth('created_at', date('m'))->sum('jasa_dibayar');
             $nasabahBelumBayar = Angsuran::has('nasabah')->whereMonth('created_at', date('m'))->get();
             Session::flash('filter', $request->get('filter_tanggal'));
 
@@ -159,8 +160,6 @@ class NasabahController extends Controller
             $nasabahBelumBayar = Angsuran::has('nasabah')->whereMonth('created_at', date('m'))->get();
             Session::forget('filter');
         }
-
-        // dd($nasabahBelumBayar);
 
         return view('home')->with([
             'nasabahs' => $nasabahs,

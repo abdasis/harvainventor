@@ -25,7 +25,7 @@ class CreateAngsuransTable extends Migration
             $table->string('sisa');
             $table->string('nama_penyetor')->nullable();
             $table->string('ttd_penyetor')->nullable();
-            $table->foreignId('nasabah_id')->constrained()->onDelete('cascade');
+            $table->foreignId('nasabah_id')->constrained();
             $table->timestamps();
         });
     }
@@ -38,5 +38,6 @@ class CreateAngsuransTable extends Migration
     public function down()
     {
         Schema::dropIfExists('angsurans');
+=
     }
 }

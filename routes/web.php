@@ -3,23 +3,11 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return redirect('/login');
 });
-
 Auth::routes();
-
 Route::get('/home', function(){
     return redirect('/admin');
 })->name('home');
@@ -35,6 +23,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('user', 'UserController');
     Route::get('anggota/create/{kelompok}', 'AnggotaController@create')->name('anggota.create');
     Route::get('anggota/pernyataan/{kelompok}', 'AnggotaController@pernyataan')->name('anggota.pernyataan');
+    Route::get('anggota/kuasa/{kelompok}', 'AnggotaController@kuasa')->name('anggota.kuasa');
+    Route::get('anggota/ba-pencairan/{kelompok}', 'AnggotaController@pencairan')->name('anggota.pencairan');
+    Route::get('anggota/tanda-terima/{kelompok}', 'AnggotaController@tandaTerima')->name('anggota.tanda-terima');
+    Route::get('anggota/kuitansi-metrai/{kelompok}', 'AnggotaController@kuitansiMetrai')->name('anggota.kuitansi-metrai');
+    Route::get('anggota/kuitansi-non-metrai/{kelompok}', 'AnggotaController@kuitansiMetrai')->name('anggota.kuitansi-non-metrai');
+    Route::get('anggota/kuitansi-iptw/{kelompok}', 'AnggotaController@kuitansiMetrai')->name('anggota.kuitansi-iptw');
+    Route::get('anggota/rencana-angsuran/{kelompok}', 'AnggotaController@rencanaAngsuran')->name('anggota.rencanaAngsuran');
+    Route::get('anggota/perjanjian-kredit/{kelompok}', 'AnggotaController@perjanjianKredit')->name('anggota.perjanjian-kredit');
     Route::resource('anggota', 'AnggotaController')->except(['create']);
     Route::resource('pernyataan', 'PernyataanController');
 });
