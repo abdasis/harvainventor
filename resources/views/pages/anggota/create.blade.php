@@ -114,16 +114,19 @@
     <div class="row">
         <div class="col-12 mb-2">
             <a href="{{ route('anggota.perjanjian-kredit', $nasabah->id) }}">
-                <div class="btn btn-danger"><i class="fa fa-print mr-1"></i>Print Perjanjian Kredit</div>
+                <div class="btn btn-danger btn-sm"><i class="fa fa-print mr-1"></i>Perjanjian Kredit</div>
             </a>
             <a href="{{ route('anggota.kuasa', $nasabah->id) }}">
-                <div class="btn btn-danger"><i class="fa fa-print mr-1"></i>Print Surat Kuasa</div>
+                <div class="btn btn-danger btn-sm"><i class="fa fa-print mr-1"></i>Surat Kuasa</div>
             </a>
             <a href="{{ route('anggota.pencairan', $nasabah->id) }}">
-                <div class="btn btn-danger"><i class="fa fa-print mr-1"></i>Print Surat Pencairan</div>
+                <div class="btn btn-danger btn-sm"><i class="fa fa-print mr-1"></i>Surat Pencairan</div>
             </a>
             <a href="{{ route('anggota.tanda-terima', $nasabah->id) }}">
-                <div class="btn btn-danger"><i class="fa fa-print mr-1"></i>Print Tanda Terima</div>
+                <div class="btn btn-danger btn-sm"><i class="fa fa-print mr-1"></i>Tanda Terima</div>
+            </a>
+            <a href="{{ route('anggota.kuitansi-metrai', $nasabah->id) }}">
+                <div class="btn btn-danger btn-sm"><i class="fa fa-print mr-1"></i>Kuitansi Materai</div>
             </a>
         </div>
         <div class="col-12">

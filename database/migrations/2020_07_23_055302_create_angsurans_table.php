@@ -38,6 +38,5 @@ class CreateAngsuransTable extends Migration
     public function down()
     {
         Schema::dropIfExists('angsurans');
-=
     }
 }

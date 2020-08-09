@@ -17,6 +17,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
         "maatwebsite/excel": "^3.1",
+        "nesbot/carbon": "^2.38",
         "realrashid/sweet-alert": "^3.1"
     },
     "require-dev": {
@@ -43,6 +44,9 @@
         "classmap": [
             "database/seeds",
             "database/factories"
+        ],
+        "files": [
+            "app/Helpers/helpers.php"
         ]
     },
     "autoload-dev": {
