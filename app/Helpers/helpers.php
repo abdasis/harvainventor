@@ -51,3 +51,10 @@ function tanggalIndonesia($tanggal)
     date_default_timezone_set('Asia/Jakarta');
     return Carbon::parse($tanggal)->translatedFormat('d F Y');
 }
+
+function hariIndonesia($tanggal)
+{
+    Carbon::setLocale('id');
+    date_default_timezone_set('Asia/Jakarta');
+    return Carbon::parse($tanggal)->translatedFormat('dd');
+}

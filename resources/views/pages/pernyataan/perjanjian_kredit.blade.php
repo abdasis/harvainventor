@@ -91,14 +91,14 @@
                 Dalam hal ini bertindak untuk dan atas nama diri sendiri dan anggota-anggota Kelompok ***{{ $nasabah->nama . ' Desa ' . $nasabah->desa }}*** telah memberikan kuasa secara tertulis sebagaimana surat Kuasa terlampir yang menjadi bagian tidak terpisahkan dari dokumen perjanjian kredit ini, selanjutnya disebut pihak kedua.
             </p>
             <p>
-                Pihak Pertama dan Pihak Kedua dalam kedudukan masing-masing seperti telah ditengkan diatas, pada hari ini ***{{ date('D') }} tanggal {{ date('d F Y') }}*** jam {{ date('h:m') }} WIB btertemapt di *** Rumah Kedua, *** Dengan sada dan sukarela menyatakan telah membuat perjanjian utang piutang dengan ketentuan-ketentuan yang disepakatai bersama sebagai berikut:
+                Pihak Pertama dan Pihak Kedua dalam kedudukan masing-masing seperti telah ditengkan diatas, pada hari ini ***{{ hariIndonesia(date('s')) }} tanggal {{ date('d F Y') }}*** jam {{ date('h:m') }} WIB btertemapt di *** Rumah Kedua, *** Dengan sada dan sukarela menyatakan telah membuat perjanjian utang piutang dengan ketentuan-ketentuan yang disepakatai bersama sebagai berikut:
             </p>
             <br>
             <p class="text-center font-13"><b>Pasal 1</b></p>
             <ol type="1">
                 <li>
                     <p>
-                        Pihak Pertama setuju memberikan pinjaman kepada pihak Kedua sebesar ***Rp. {{ number_format($nasabah->total_pinjaman, 2,',','.') }},- ({{ terbilang($nasabah->total_pinjaman) }} Rupiah)*** yaitu jumlah yang telah diputuskan dalam Musyawarah Tim Pendanaan atau Musyawarah Khusus Perguliran pada tanggal ***{{ date('d F Y', strtotime($nasabah->created_at)) }}*** berdasarkan Permohonan dari Pihak Kedua dan para Pemberi Kuasa yang dilakukan secara kelompok sesuai Surat Permohonan Kredit dan hasil verifikasi kelompok
+                        Pihak Pertama setuju memberikan pinjaman kepada pihak Kedua sebesar ***Rp. {{ toRupiah($nasabah->total_pinjaman, 2,',','.') }},- ({{ terbilang($nasabah->total_pinjaman) }} Rupiah)*** yaitu jumlah yang telah diputuskan dalam Musyawarah Tim Pendanaan atau Musyawarah Khusus Perguliran pada tanggal ***{{ tanggalIndonesia($nasabah->created_at) }}*** berdasarkan Permohonan dari Pihak Kedua dan para Pemberi Kuasa yang dilakukan secara kelompok sesuai Surat Permohonan Kredit dan hasil verifikasi kelompok
                     </p>
                 </li>
                 <li>
@@ -118,7 +118,7 @@
                     <p>Atas pinjaman tersebut dikenakan jasa pinjaman {{ $nasabah->jasa_pinjaman*12 }} % tetap pertahun atau {{ $nasabah->jasa_pinjaman }}% perbulan.</p>
                 </li>
                 <li>
-                    <p>Pinjaman akan dibayar kembali dalam jangka waktu ***{{ $nasabah->jangka_pinjaman }} bulan***, terhitung dari bulan ***{{ date('F Y', strtotime($nasabah->tanggal_pencarian)) }} Sampai dengan bulan {{ date('F Y', strtotime(" +$nasabah->jangka_pinjaman months", strtotime($nasabah->tanggal_pencarian))) }}*** dengan cara angsuran bulanan, yaitu pokok pinjaman sebesar ****Rp. {{ $nasabah->besar_pokok }},- dan jasa pinjaman sebesar Rp. {{ number_format($nasabah->besar_jasa, 2, ',','.') }},- pada setiap tanggal {{ date('d', strtotime($nasabah->created_at)) }} sampai lunas***.</p>
+                    <p>Pinjaman akan dibayar kembali dalam jangka waktu ***{{ $nasabah->jangka_pinjaman }} bulan***, terhitung dari bulan ***{{ tanggalIndonesia($nasabah->tanggal_pencarian) }} Sampai dengan bulan {{ date('F Y', strtotime(" +$nasabah->jangka_pinjaman months", strtotime($nasabah->tanggal_pencarian))) }}*** dengan cara angsuran bulanan, yaitu pokok pinjaman sebesar ****Rp. {{ $nasabah->besar_pokok }},- dan jasa pinjaman sebesar Rp. {{ number_format($nasabah->besar_jasa, 2, ',','.') }},- pada setiap tanggal {{ date('d', strtotime($nasabah->created_at)) }} sampai lunas***.</p>
                 </li>
                 <li>
                     <p>
@@ -177,7 +177,7 @@
                 </div>
                 <div class="col-md-4">
                     <p class="text-right">
-                        Penidon, {{ date('d F Y') }}
+                        Penidon, {{ tanggalIndonesia(date('d F Y')) }}
                     </p>
                 </div>
             </div>
