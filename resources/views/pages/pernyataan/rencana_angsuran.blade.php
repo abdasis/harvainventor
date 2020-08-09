@@ -95,17 +95,6 @@
 
             <br>
 
-            <table>
-                <thead>
-                    <tr>
-                        <td>No</td>
-                        <td>Tanggal Pembayaran</td>
-                    </tr>
-                </thead>
-            </table>
-
-            <br>
-
             <div class="row justify-content-center mt-4">
                 <div class="col-md-4"></div>
                 <div class="col-md-4"></div>
@@ -118,41 +107,28 @@
             <div class="row justify-content-center">
                 <div class="col-md-4 text-center">
                     <p>
-                        Lunas Dibayar
+                        Mengetahui Dan Menyetujui
                         <br>
-                        Bendahara UPK
-
-
+                        <b>Bendahara UPK</b>
+                        <br>
+                        <b>Kecamatan Pelumpang</b>
                     </p>
 
                     <div class="py-5"></div>
-                    <b>MARIYATI</b>
+                    <b>DJITO,S.Pd</b>
                 </div>
                 <div class="col-md-4"></div>
                 <div class="col-md-4 text-center">
                     <p>
-                        Yang Menerima
                         <br>
-                        Ketua Kelompok
+                        <b>Ketua Kelompok</b>
+                        <br>
+                        <b>{{ $pernyataan->nama }}</b>
 
                     </p>
 
                     <div class="py-5"></div>
                     <b>{{ $pernyataan->ketua }}</b>
-                </div>
-            </div>
-
-            <div class="row justify-content-center mt-5">
-                <div class="col-md-4">
-                    <p class="text-center">
-                        Setuju Dibayar
-                        <br>
-                        Ketua UPK
-                    </p>
-                    <div class="py-5"></div>
-                    <p class="text-center">
-                        DJITO,S.Pd
-                    </p>
                 </div>
             </div>
 

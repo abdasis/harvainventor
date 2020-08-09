@@ -33,4 +33,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('anggota/perjanjian-kredit/{kelompok}', 'AnggotaController@perjanjianKredit')->name('anggota.perjanjian-kredit');
     Route::resource('anggota', 'AnggotaController')->except(['create']);
     Route::resource('pernyataan', 'PernyataanController');
+
+    // route rencana angsuran
+    Route::get('tambah-rencana-angsuran/{kelompok}', 'RencanaController@create')->name('rencana-angsuran.create');
+    Route::post('tambah-rencana-angsuran', 'RencanaController@store')->name('rencana-angsuran.store');
+
 });

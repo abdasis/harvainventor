@@ -92,8 +92,14 @@
                                 </a>
 
                                 <a href="{{ route('anggota.create', $nasabah->id) }}">
-                                    <div class="btn btn-blue btn-sm waves-ripple">
+                                    <div class="btn btn-blue btn-sm waves-ripple mr-1">
                                         <i class="fas fa-users"></i>
+                                    </div>
+                                </a>
+
+                                <a href="{{ route('rencana-angsuran.create', $nasabah->id) }}">
+                                    <div class="btn btn-pink btn-sm waves-ripple">
+                                        <i class="fas fa-book-open"></i>
                                     </div>
                                 </a>
                             </td>
