@@ -28,7 +28,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('anggota/tanda-terima/{kelompok}', 'AnggotaController@tandaTerima')->name('anggota.tanda-terima');
     Route::get('anggota/kuitansi-metrai/{kelompok}', 'AnggotaController@kuitansiMetrai')->name('anggota.kuitansi-metrai');
     Route::get('anggota/kuitansi-non-metrai/{kelompok}', 'AnggotaController@kuitansiNonMetrai')->name('anggota.kuitansi-non-metrai');
-    Route::get('anggota/kuitansi-iptw/{kelompok}', 'AnggotaController@kuitansiMetrai')->name('anggota.kuitansi-iptw');
+    Route::get('anggota/kuitansi-iptw/{kelompok}', 'AnggotaController@kuitansiIptw')->name('anggota.kuitansi-iptw');
     Route::get('anggota/rencana-angsuran/{kelompok}', 'AnggotaController@rencanaAngsuran')->name('anggota.rencanaAngsuran');
     Route::get('anggota/perjanjian-kredit/{kelompok}', 'AnggotaController@perjanjianKredit')->name('anggota.perjanjian-kredit');
     Route::resource('anggota', 'AnggotaController')->except(['create']);

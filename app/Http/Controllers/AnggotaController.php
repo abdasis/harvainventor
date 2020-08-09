@@ -166,4 +166,10 @@ class AnggotaController extends Controller
         $nasabah = Nasabah::find($id);
         return view('pages.pernyataan.kuitansi_non_materai')->withPernyataan($nasabah);
     }
+
+    public function kuitansiIptw($id)
+    {
+        $nasabah = Nasabah::find($id);
+        return view('pages.pernyataan.kuitansi_non_materai')->withPernyataan($nasabah);
+    }
 }
