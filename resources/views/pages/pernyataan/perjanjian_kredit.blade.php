@@ -177,7 +177,7 @@
                 </div>
                 <div class="col-md-4">
                     <p class="text-right">
-                        Penidon, {{ tanggalIndonesia(date('d F Y')) }}
+                        {{ $pernyataan->desa }}, {{ tanggalIndonesia(date('d F Y')) }}
                     </p>
                 </div>
             </div>

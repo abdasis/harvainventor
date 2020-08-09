@@ -128,6 +128,17 @@
             <a href="{{ route('anggota.kuitansi-metrai', $nasabah->id) }}">
                 <div class="btn btn-danger btn-sm"><i class="fa fa-print mr-1"></i>Kuitansi Materai</div>
             </a>
+
+            <a href="{{ route('anggota.kuitansi-non-metrai', $nasabah->id) }}">
+                <div class="btn btn-danger btn-sm"><i class="fa fa-print mr-1"></i>Kuitansi No Materai</div>
+            </a>
+
+            <a href="{{ route('anggota.kuitansi-iptw', $nasabah->id) }}">
+                <div class="btn btn-danger btn-sm"><i class="fa fa-print mr-1"></i>Kuitansi IPTW</div>
+            </a>
+            <a href="{{ route('anggota.rencanaAngsuran', $nasabah->id) }}">
+                <div class="btn btn-danger btn-sm"><i class="fa fa-print mr-1"></i>Kuitansi IPTW</div>
+            </a>
         </div>
         <div class="col-12">
             <div class="card">

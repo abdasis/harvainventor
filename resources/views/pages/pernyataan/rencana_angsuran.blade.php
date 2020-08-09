@@ -17,7 +17,7 @@
         <div class="container bg-transparent p-3">
             <h1 class="text-center font-weight-bolder">RENCANA ANGSURAN KELOMPOK ke UPK</h1>
             <br>
-            <table class="table table-sm table-borderless">
+            <table class="table table-sm table-borderless table-responsive">
                 <tr>
                     <td>JENIS KELOMPOK</td>
                     <td>:</td>
@@ -45,7 +45,7 @@
                 <tr>
                     <td>JASA PINJAMAN</td>
                     <td>:</td>
-                    <th>Rp. {{ toRupiah($pernyataan->jasa_pinjaman) }}</th>
+                    <th>Rp. {{ toRupiah($pernyataan->total_pinjaman*$pernyataan->jasa_pinjaman/100) }}</th>
                 </tr>
                 <tr>
                     <td>TANGGAL PENCAIRAN</td>
@@ -54,24 +54,55 @@
                 </tr>
 
                 <tr>
-                    <td>JANGKA WAKTU</td>
+                    <td>JANGKA WAKTU PINJAMAN</td>
                     <td>:</td>
-                    <th>{{ tanggalIndonesia($pernyataan->tanggal_pencarian) }}</th>
+                    <th>{{ tanggalIndonesia($pernyataan->tanggal_pencarian) }} s/d {{ tanggalIndonesia(date('F Y', strtotime(" +$pernyataan->jangka_pinjaman months", strtotime($pernyataan->tanggal_pencarian)))) }} *({{ $pernyataan->jangka_pinjaman }} bulan)*</th>
+                </tr>
+
+                <tr>
+                    <td>JUMLAH ANGSURAN POKOK</td>
+                    <td>:</td>
+                    <th>{{ $pernyataan->jangka_pinjaman }} Bulan</th>
+                </tr>
+
+                <tr>
+                    <td>JUMLAH ANGSURAN JASA</td>
+                    <td>:</td>
+                    <th>{{ $pernyataan->jangka_pinjaman }} Bulan</th>
+                </tr>
+                <tr>
+                    <td class="text-right">BESAR ANGSURAN PER BULAN</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-right">POKOK</td>
+                    <td>:</td>
+                    <td>{{ toRupiah($pernyataan->total_pinjaman) }}</td>
+                </tr>
+                <tr>
+                    <td class="text-right">JASA</td>
+                    <td>:</td>
+                    <td>{{ toRupiah($pernyataan->total_pinjaman * $pernyataan->jasa_pinjaman / 100) }}</td>
+                </tr>
+                <tr>
+                    <td class="text-right">JUMLAH DIBAYARKAN</td>
+                    <td>:</td>
+                    <td>{{ toRupiah($pernyataan->total_pinjaman+$pernyataan->total_pinjaman*$pernyataan->jasa_pinjaman/100) }}</td>
                 </tr>
 
             </table>
 
             <br>
-            <p>
-                Untuk melakukan perjanjian dengan Unit Pengelola Kegiatan (UPK) PNPM Mandiri Perdesaan terkait dengan kegiatan Simpan Pinjam Kelompok Perempuan (SPP). Besarnya nilai pinjaman yang diperjanjikan adalah sebagaimana yang disetujui dan disahkan dalam Musyawarah Tim Pendanaan atau Musyawarah Khusus Perguliran.
 
-            </p>
-
-            <br>
-
-            <p>
-                Demikian surat kuasa ini di buat untuk dipergunakan sebagaimana mestinya.
-            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <td>No</td>
+                        <td>Tanggal Pembayaran</td>
+                    </tr>
+                </thead>
+            </table>
 
             <br>
 
