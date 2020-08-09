@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 function penyebut($nilai) {
     $nilai = abs($nilai);
     $huruf = array("", "Satu", "Dua", "Tiga", "Empat", "Lima", "Enam", "Tujuh", "Delapan", "Sembilan", "Sepuluh", "Sebelas");
@@ -41,4 +43,11 @@ function terbilang($nilai) {
 function toRupiah($nilai)
 {
     return number_format($nilai, 2, ',','.');
+}
+
+function tanggalIndonesia($tanggal)
+{
+    Carbon::setLocale('id');
+    date_default_timezone_set('Asia/Jakarta');
+    return Carbon::parse($tanggal)->translatedFormat('d F Y');
 }

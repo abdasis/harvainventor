@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Anggota;
 use App\Models\Nasabah;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -171,5 +172,12 @@ class AnggotaController extends Controller
     {
         $nasabah = Nasabah::find($id);
         return view('pages.pernyataan.kuitansi_non_materai')->withPernyataan($nasabah);
+    }
+
+    public function rencanaAngsuran($id)
+    {
+
+        $nasabah = Nasabah::find($id);
+        return view('pages.pernyataan.rencana_angsuran')->withPernyataan($nasabah);
     }
 }
